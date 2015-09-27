@@ -1,4 +1,4 @@
-# PKuJava05
+# PkuJava05
 this is No.5's repository of java
 <html>
 <p>组长：赵虎  学号：1501210806</p>
