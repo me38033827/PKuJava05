@@ -1,0 +1,46 @@
+public class Solution {
+    public List<List<Integer>> generate(int numRows) {
+       
+        List<List<Integer>> result=new ArrayList<List<Integer>>(numRows);  
+        List<Integer> temp=new ArrayList<>();
+        if (numRows <= 0) {
+            return result;
+        }
+        for(int i=0;i<=numRows-1;i++){
+            temp=getRow(i);
+            result.add(temp);
+        }
+        return result;
+    }
+    
+     public List<Integer> getRow(int rowIndex) {
+
+        rowIndex++; // 第rowIndex的实质数据数目
+
+        if (rowIndex < 0) {
+            return null;
+        }
+
+        List<Integer> result = new ArrayList<>(rowIndex);
+        
+        if (rowIndex == 1) {
+            result.add(1);
+            return result;
+        }
+        int s = 1;                    // 数值    
+        int i=rowIndex,j;                       // 循环计数
+        result.add(1);               // 第一个 1   
+        //for (j = 1; j <=i - 2; j++) {// 列位置 j 绕过第一个直接开始循环   
+        for (j = 1; j <=(i - 1)/2; j++) {// （对称性，只需求一半）                    
+            s = (i - j) * s / j; 
+            result.add(s);
+        }
+        //result.add(1);              // 最后一个 1，
+        
+        for(j=rowIndex/2-1;j>=0;j--) //将相同的后一部分添加进去
+           result.add(result.get(j));
+        
+        return result;
+    }
+    
+}
