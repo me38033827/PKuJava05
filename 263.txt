@@ -1,0 +1,43 @@
+public class Solution {
+    public boolean isUgly(int num) {
+        //if(num%2=0||num%3=0||num%5=0)
+        //switch
+       if(num>=Integer.MAX_VALUE||num<=Integer.MIN_VALUE||num<=0){
+            //return Integer.MAX_VALUE;
+            return false;
+        }
+        //else if(){
+            //return Integer.MIN_VALUE;
+          //  return false;
+        else if(num==1){
+            return true;
+        }
+       // else if(){
+           // return false;
+        else{
+        /*else if(num%2==0||num%2==3||num%2==5){
+            return true;
+        }else if(num%3==0||num%3==2||num%3==5){
+            return true;
+        }else if(num%5==0||num%5==2||num%5==3){
+            return true;
+        }else{
+            return false;
+        }*/
+         while(num>=5 && num%5==0) num/=5;
+         while(num>=2 && num%2==0) num/=2;  
+        while(num>=3 && num%3==0) num/=3;  
+         
+        return num==1;
+        }  
+       /* if(num<=0) return false;  
+        if(num==1) return true;  
+          
+        while(num>=2 && num%2==0) num/=2;  
+        while(num>=3 && num%3==0) num/=3;  
+        while(num>=5 && num%5==0) num/=5;  
+          
+        return num==1; */
+    
+    }
+}
