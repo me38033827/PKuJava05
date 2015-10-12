@@ -1,0 +1,47 @@
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+       // int k=i+1;
+      //  int j;
+     /*   for(int i=0;i<nums.length-1;i++){
+            for(int j=1;j<nums.length-1;i++){
+            if(target-nums[i]==nums[j]){
+                System.out.println("index1="+(i+1)+",index2="+(j+1));
+                break;
+                
+            }
+            }
+        
+        }
+         
+        return nums;*/
+        
+        
+        int[] res = new int[2];
+
+Map map = new HashMap();
+
+for(int i = 0; i < nums.length; i++){
+
+map.put(nums[i], i);
+
+}
+
+for(int i = 0; i < nums.length; i++){
+
+int gap = target - nums[i];
+
+if(map.get(gap)!= null && (int)map.get(gap)!= i){
+
+res[0] = i+1;
+
+res[1] = (int)map.get(gap) + 1;
+
+break;
+
+}
+
+}
+
+return res;
+        }
+}
