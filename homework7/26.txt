@@ -1,0 +1,31 @@
+public class Solution {
+    public int removeDuplicates(int[] nums) {
+  /***      int len=nums.length;
+        for(int i=1;i<nums.length;i++){
+            int a=nums[0];
+            if(a==nums[i]){
+            //   nums[i]=nums[nums.length-1];
+              nums[i]=nums[i+1];
+                continue;
+            
+            }
+        }
+    
+        return len;*/
+        
+        
+       int len = nums.length;
+    if (len == 0)
+        return 0;
+    int a = 1;//a用来始终指向重复待删除的那一个元素.最终指向最新的数组长度
+    for (int i = 1; i < len; i++) {
+        if (nums[i] == nums[i - 1]) {
+            continue;
+        }else{
+            nums[a] = nums[i];
+            a++;
+        }
+    }
+    return a;
+    }
+}

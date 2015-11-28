@@ -1,0 +1,19 @@
+public class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer>Contains=new HashSet<Integer>();
+        if(nums.length>2147483647)
+        return false;
+        if(nums.length==0)
+        return false;
+        for(int i=0;i<nums.length;i++){
+            if(Contains.size()==0)
+            Contains.add(nums[i]);
+            if(!Contains.contains(nums[i]))
+            Contains.add(nums[i]);
+        }
+        if(Contains.size()==nums.length)
+        return false;
+        else
+        return true;
+    }
+}
