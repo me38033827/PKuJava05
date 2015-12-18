@@ -1,0 +1,39 @@
+public class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        /*
+        int[] nums3=new int[m+n];
+        
+        while(m==0){
+           for(int i=0;i<n;i++) {nums3[i]=nums2[i];}
+        Arrays.sort(nums3);
+        }
+        while(nums2==null){
+           for(int i=0;i<m;i++) {nums3[i]=nums1[i];}
+        Arrays.sort(nums3);
+        }
+        
+        while(m>0){
+        
+        for(int i=0;i<m;i++) nums3[i]=nums1[i];
+        for(int i=m;i<n;i++) nums3[i]=nums2[i];
+        Arrays.sort(nums3);}
+       // return nums3[];
+       */
+       int a=m-1;
+       int b=n-1;
+       int c=m+n-1;
+      
+       while(a>=0&&b>=0){
+           nums1[c]=nums1[a]>nums2[b]?nums1[a--]:nums2[b--];
+           
+           c--;
+           
+       }
+       while(a>=0){
+           nums1[c--]=nums1[a--];
+       }
+       while(b>=0){
+           nums1[c--]=nums2[b--];
+       }
+    }
+}
